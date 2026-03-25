@@ -1,26 +1,40 @@
-# Environment Variables (CRITICAL: Never commit these!)
+# --- General / OS ---
+.DS_Store
+.vscode/
+.idea/
+*.log
 .env
-.env.*
+.env.local
+.env.*.local
+
+# --- Frontend (React + Vite) ---
+node_modules/
+dist/
+dist-ssr/
 *.local
+.eslintcache
+# Vite specific
+.vite/
 
-# Node.js / React Frontend
-frontend/node_modules/
-frontend/dist/
-frontend/build/
-npm-debug.log*
-
-# Go Backend
-backend/bin/
-backend/tmp/
+# --- Backend (Go) ---
+# Binaries and architectures
+bin/
+main
 *.exe
 *.exe~
 *.dll
 *.so
 *.dylib
-backend/server # If you build a compiled binary named 'server'
+*.out
+vendor/
 
-# OS / Editor Files
-.DS_Store
-.vscode/
-.idea/
-*.swp
+# --- Redis & Infrastructure ---
+dump.rdb
+appendonly.aof
+.docker-data/
+redis-data/
+
+# --- Environment Secrets (CRITICAL) ---
+.env
+backend/.env
+frontend/.env
