@@ -1,0 +1,39 @@
+package database
+
+import (
+	"fmt"
+	"log"
+	"os"
+
+	"github.com/SKjustSK/secure-task-management/backend/internal/models"
+	"gorm.io/driver/postgres"
+	"gorm.io/gorm"
+)
+
+var DB *gorm.DB
+
+func Connect() {
+	// Construct the DSN (Data Source Name) from environment variables
+	dsn := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s sslmode=disable TimeZone=UTC",
+		os.Getenv("DB_HOST"),
+		os.Getenv("DB_USER"),
+		os.Getenv("DB_PASSWORD"),
+		os.Getenv("DB_NAME"),
+		os.Getenv("DB_PORT"),
+	)
+
+	var err error
+	DB, err = gorm.Open(postgres.Open(dsn), &gorm.Config{})
+	if err != nil {
+		log.Fatalf("Failed to connect to database: %v", err)
+	}
+
+	log.Println("Database connection established")
+
+	// Auto-migrate your models
+	err = DB.AutoMigrate(&models.User{}, &models.Task{})
+	if err != nil {
+		log.Fatalf("Failed to auto-migrate database: %v", err)
+	}
+	log.Println("Database migration completed")
+}
