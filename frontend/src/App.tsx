@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { CheckSquare, LogOut } from 'lucide-react';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
