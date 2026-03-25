@@ -1,0 +1,26 @@
+# Environment Variables (CRITICAL: Never commit these!)
+.env
+.env.*
+*.local
+
+# Node.js / React Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/build/
+npm-debug.log*
+
+# Go Backend
+backend/bin/
+backend/tmp/
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+backend/server # If you build a compiled binary named 'server'
+
+# OS / Editor Files
+.DS_Store
+.vscode/
+.idea/
+*.swp
