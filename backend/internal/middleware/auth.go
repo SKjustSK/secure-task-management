@@ -6,7 +6,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/SKjustSK/secure-task-management/backend/internal/utils" // Imported for Error helper
+	"github.com/SKjustSK/secure-task-management/backend/internal/utils"
 	"github.com/gin-gonic/gin"
 	"github.com/golang-jwt/jwt/v5"
 )
